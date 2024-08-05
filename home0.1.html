@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Screen Share</title>
+</head>
+<body>
+  <h1>Screen Sharing Example</h1>
+  <video id="screen-video" autoplay></video>
+  <script>
+    async function startScreenShare() {
+      try {
+        const displayMediaOptions = { video: { cursor: "always" }, audio: false };
+        const stream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+        document.getElementById('screen-video').srcObject = stream;
+      } catch (err) {
+        console.error("Error: " + err);
+      }
+    }
+    startScreenShare();
+  </script>
+</body>
+</html>
+
